@@ -7,7 +7,12 @@ const JobListing = () => {
 	const [category, setCategory] = useState([]);
 	return (
 		<main className='main'>
-			<Catagories category={category} setCategory={setCategory}/>
+			<Catagories
+				category={category}
+				setCategory={setCategory}
+				setJobList={setJobList}
+				jobs={jobs}
+			/>
 			{jobList.map((job) => {
 				return (
 					<div className='job-list-wrapper'>
@@ -28,8 +33,8 @@ const JobListing = () => {
 							</div>
 						</div>
 						<Buttons
-							jobs={jobs}
 							job={job}
+							jobList={jobList}
 							setJobList={setJobList}
 							setCategory={setCategory}
 						/>

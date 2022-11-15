@@ -1,8 +1,9 @@
-const Buttons = ({ job, jobs, setJobList, setCategory }) => {
+import React, { useState } from 'react';
+const Buttons = ({ job, jobList, setJobList, setCategory }) => {
 	const handleFilter = (e) => {
     e.preventDefault();
 		let value = e.target.innerText;
-		let filtered = jobs.filter(
+		let filtered = jobList.filter(
 			(job) =>
 				job.role.includes(value) ||
 				job.level.includes(value) ||
