@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import jobs from '../data.json';
+import Buttons from './Buttons';
+import Catagories from './Catagories';
 const JobListing = () => {
 	const [jobList, setJobList] = useState(jobs);
+	const [category, setCategory] = useState([]);
 	return (
 		<main className='main'>
+			<Catagories category={category} setCategory={setCategory}/>
 			{jobList.map((job) => {
 				return (
 					<div className='job-list-wrapper'>
@@ -23,13 +27,12 @@ const JobListing = () => {
 								</div>
 							</div>
 						</div>
-						<div className='right'>
-							<p className='role'>{job.role}</p>
-							<p className='level'>{job.level}</p>
-							{job.languages.map((language) => (
-								<p className='language'>{language}</p>
-							))}
-						</div>
+						<Buttons
+							jobs={jobs}
+							job={job}
+							setJobList={setJobList}
+							setCategory={setCategory}
+						/>
 					</div>
 				);
 			})}
