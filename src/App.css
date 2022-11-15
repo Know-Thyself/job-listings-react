@@ -66,11 +66,9 @@
 }
 .description {
   display: flex;
-  /* margin: 0; */
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  /* gap: 0; */
 }
 
 .company-new-featured,

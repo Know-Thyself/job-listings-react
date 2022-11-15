@@ -1,5 +1,5 @@
 const Header = () => {
-  return (
+	return (
 		<header className='App-header'>
 			<img
 				className='header-bg'
@@ -8,6 +8,6 @@ const Header = () => {
 			/>
 		</header>
 	);
-}
+};
 
 export default Header;

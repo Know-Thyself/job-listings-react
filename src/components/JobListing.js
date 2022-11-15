@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import jobs from '../data.json';
 const JobListing = () => {
-  const [jobList, setJobList] = useState(jobs);
-  console.log(jobList)
-  return(
-    <main className='main'>
-      {jobList.map(job => {
-        return (
+	const [jobList, setJobList] = useState(jobs);
+	return (
+		<main className='main'>
+			{jobList.map((job) => {
+				return (
 					<div className='job-list-wrapper'>
 						<div className='left'>
 							<img src={job.logo} alt='logo' />
@@ -33,9 +32,9 @@ const JobListing = () => {
 						</div>
 					</div>
 				);
-      })}
-    </main>
-  )
-}
+			})}
+		</main>
+	);
+};
 
 export default JobListing;
