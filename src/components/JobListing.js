@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
 import jobs from '../data.json';
-import Buttons from './Buttons';
+import FilterButtons from './FilterButtons';
 import Catagories from './Catagories';
+
 const JobListing = () => {
 	const [jobList, setJobList] = useState(jobs);
 	const [category, setCategory] = useState([]);
-	const [jobListReset, setJobListReset] = useState([]);
+	jobList.sort((a, b) => a.id - b.id);
+
 	return (
 		<main className='main'>
 			<Catagories
+				jobs={jobs}
 				category={category}
 				setCategory={setCategory}
 				setJobList={setJobList}
-				jobList={jobList}
-				jobListReset={jobListReset}
 			/>
 			{jobList.map((job) => {
 				return (
@@ -34,13 +35,11 @@ const JobListing = () => {
 								</div>
 							</div>
 						</div>
-						<Buttons
+						<FilterButtons
 							job={job}
 							jobList={jobList}
 							setJobList={setJobList}
 							setCategory={setCategory}
-							setJobListReset={setJobListReset}
-							jobListReset={jobListReset}
 						/>
 					</div>
 				);
