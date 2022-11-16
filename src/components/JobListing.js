@@ -5,13 +5,15 @@ import Catagories from './Catagories';
 const JobListing = () => {
 	const [jobList, setJobList] = useState(jobs);
 	const [category, setCategory] = useState([]);
+	const [jobListReset, setJobListReset] = useState([]);
 	return (
 		<main className='main'>
 			<Catagories
 				category={category}
 				setCategory={setCategory}
 				setJobList={setJobList}
-				jobs={jobs}
+				jobList={jobList}
+				jobListReset={jobListReset}
 			/>
 			{jobList.map((job) => {
 				return (
@@ -37,6 +39,8 @@ const JobListing = () => {
 							jobList={jobList}
 							setJobList={setJobList}
 							setCategory={setCategory}
+							setJobListReset={setJobListReset}
+							jobListReset={jobListReset}
 						/>
 					</div>
 				);

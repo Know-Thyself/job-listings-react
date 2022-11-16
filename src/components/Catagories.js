@@ -1,26 +1,26 @@
 import React, { useState } from 'react';
-const Catagories = ({ category, setCategory, jobs, setJobList }) => {
-	const [reset, setReset] = useState([]);
-	console.log(category);
+const Catagories = ({
+	category,
+	setCategory,
+	jobList,
+	setJobList,
+	jobListReset,
+}) => {
 	let uniqueCategories = category.filter((v, i, a) => a.indexOf(v) === i);
 	const handleClose = (e) => {
+		let value = e.target.previousSibling.innerText;
 		uniqueCategories = uniqueCategories.filter(
-			(category) => category !== e.target.previousSibling.innerText
+			(category) => category !== value
 		);
 		setCategory(uniqueCategories);
-
-		const restored = jobs.filter((job) => {
-			for (let i = 0; i < uniqueCategories.length; i++) {
-				if (
-					job.role.includes(uniqueCategories[i]) ||
-					job.level.includes(uniqueCategories[i]) ||
-					job.languages.includes(uniqueCategories[i])
-				) {
-					return job;
-				}
-			}
-		});
-		setJobList(restored);
+		let toBeRestored = jobListReset.filter((list) =>
+			Object.keys(list).includes(value)
+		);
+		let newArr = [...jobList, ...toBeRestored[0][value]];
+		setJobList(newArr);
+		if (!uniqueCategories.length) {
+			e.target.parentElement.parentElement.style.display = 'none';
+		}
 	};
 	return (
 		<div className='categories'>

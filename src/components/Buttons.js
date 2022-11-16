@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
-const Buttons = ({ job, jobList, setJobList, setCategory }) => {
+const Buttons = ({
+	job,
+	jobList,
+	setJobList,
+	setCategory,
+  jobListReset,
+	setJobListReset,
+}) => {
 	const handleFilter = (e) => {
-    e.preventDefault();
+		e.preventDefault();
 		let value = e.target.innerText;
 		let filtered = jobList.filter(
 			(job) =>
@@ -10,10 +17,16 @@ const Buttons = ({ job, jobList, setJobList, setCategory }) => {
 				job.languages.includes(value)
 		);
 		const multiSelect = [...filtered];
+    let removed = jobList.filter(job => !multiSelect.includes(job));
+
+    let obj = { [value] : removed };
+    let arr = [];
+    arr.push(obj)
+    setJobListReset((jobListReset) => jobListReset.concat(arr[0]));
 		setJobList(multiSelect);
-    setCategory((category) => category.concat(value));
-    const categories = document.querySelector('.categories');
-    categories.style.display = 'flex';
+		setCategory((category) => category.concat(value));
+		const categories = document.querySelector('.categories');
+		categories.style.display = 'flex';
 	};
 	return (
 		<div className='right'>
