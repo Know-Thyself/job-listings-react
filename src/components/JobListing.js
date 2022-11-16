@@ -18,9 +18,19 @@ const JobListing = () => {
 			/>
 			{jobList.map((job) => {
 				return (
-					<div className='job-list-wrapper'>
+					<div
+						className={
+							job.featured ? 'job-list-wrapper featured-wrapper' : 'job-list-wrapper'
+						}
+					>
 						<div className='left'>
-							<img src={job.logo} alt='logo' />
+							<div className='logo-wrapper'>
+								<img
+									src={job.logo}
+									alt='logo'
+									style={{ width: 'inherit', height: 'inherit' }}
+								/>
+							</div>
 							<div className='description'>
 								<div className='company-new-featured'>
 									<h4 className='company'>{job.company}</h4>
