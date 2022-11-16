@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700&family=Montserrat:wght@300;800&display=swap');
+
 .App {
 	text-align: center;
-	background-color: var(--light-grayish-cyan-bg);
 	font-size: 15px;
 }
+
 :root {
 	--dark-cyan: hsl(180, 29%, 50%);
 	--light-grayish-cyan-bg: hsl(180, 52%, 96%);
@@ -79,9 +80,6 @@
 .featured-wrapper {
 	border-left: solid var(--dark-cyan);
 }
-.left {
-	margin-top: 0;
-}
 
 .logo-wrapper {
 	height: 44px;
@@ -94,6 +92,7 @@
 	display: flex;
 	gap: 0.5rem;
 }
+
 .company {
 	margin-right: 0.5rem;
 	color: var(--dark-cyan);
@@ -115,6 +114,7 @@
 	border-radius: 16px;
 	text-transform: uppercase;
 }
+
 .featured {
 	background-color: black;
 }
@@ -164,12 +164,14 @@
 	.left {
 		flex-direction: row;
 	}
+
 	.logo-wrapper {
 		height: 88px;
 		width: 88px;
 		text-align: left;
 		margin-top: 0;
 	}
+
 	.description {
 		display: flex;
 		width: 100%;
@@ -177,6 +179,7 @@
 		justify-content: center;
 		align-items: flex-start;
 	}
+
 	.job-list-wrapper,
 	.company-new-featured,
 	.left,
@@ -185,12 +188,14 @@
 		align-items: center;
 		gap: 0.5rem;
 	}
+
 	.company-new-featured,
 	.position,
 	.details {
 		line-height: normal;
 		margin: 0;
 	}
+
 	.right {
 		width: auto;
 		gap: 0.5rem;
